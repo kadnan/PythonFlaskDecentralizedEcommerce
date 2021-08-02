@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  ul {
+    list-style:none;
+    padding:0;
+  }
+  li {
+    margin-bottom:50px;
+  }
+</style>
+
+<div style="margin-top:30px" class="row text-center">
+    <div class="col-md-12">
+        <ul>
+            {% for product in products %}
+            <li>
+                <div>
+                    <img width="200" src="{{product['image']}}" alt="">
+                </div>
+                <div>
+                    <h3>{{product['name']}}</h3>
+                    <div><h4>Ξ {{product['price']}}</h4></div>
+                    <div><button  data-price="{{product['price']}}" data-name="{{product['name']}}" class="btn-buy btn btn-success">Buy Now</button></div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4 offset-3">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+<div style="margin-top:30px" class="row">
+    <div class="col-md-5 offset-3">
+        <form method="post" action="/logged_in">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

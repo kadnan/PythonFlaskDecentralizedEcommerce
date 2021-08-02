@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  ul {
+    list-style:none;
+    padding:0;
+  }
+  li {
+    margin-bottom:50px;
+  }
+
+</style>
+<div style="margin-top:30px;" class="row">
+    <div class="col-md-12">
+        <h3>Order History</h3>
+    </div>
+</div>
+<div style="margin-top:30px;" class="row">
+    <div class="col-md-12">
+        <table  class="table">
+            <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Product Name</th>
+                <th>Wallet Address</th>
+                <th>Transaction Hash</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+            <tr>
+                <td><small>{{order[3]}}</small></td>
+                <td><small>{{order[1]}}</small></td>
+                <td><small>{{order[2]}}</small></td>
+                <td><small>{{order[4]}}</small></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
